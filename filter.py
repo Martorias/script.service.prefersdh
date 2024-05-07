@@ -41,7 +41,8 @@ class SubtitleFilteredPlayer(xbmc.Player):
             for sub in self.subtitles:
                 log_message('found subtitle: [' + str(sub['index']) + '] ===>' + str(sub))
                 ## finds first subtitle stream of the same language as already selected but which is NOT marked as forced
-                if sub['language'] == preferred_language and not (sub['isforced'] is True or sub['name'].lower().find('forced') != -1):
+                #if sub['language'] == preferred_language and not (sub['isforced'] is True or sub['name'].lower().find('forced') != -1):
+                if sub['language'] == preferred_language and sub['name'].lower().find('sdh') != -1:    
                     self.setSubtitleStream(sub['index'])
                     log_message('subtitle changed')
                     break
